@@ -1,4 +1,4 @@
-# oracle-one-challenger
+# Oracle One Challenger
 # Amigo Secreto
 
 Este es un proyecto web que permite realizar el sorteo del juego **Amigo Secreto** de forma automática. Los usuarios pueden ingresar los nombres de los participantes y luego sortear aleatoriamente quién será el amigo secreto de cada persona.

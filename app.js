@@ -11,7 +11,7 @@ function agregarAmigo() {
         alert("Por favor, ingresa un nombre válido.");
         return;
     }
-    
+
     // Validación: evitar nombres repetidos
     if (amigos.includes(nombre)) {
         alert("Este nombre ya está en la lista.");
@@ -28,7 +28,7 @@ function agregarAmigo() {
 function actualizarListaAmigos() {
     const lista = document.getElementById("listaAmigos"); // Captura la lista en el HTML
     lista.innerHTML = ""; // Vacía la lista antes de actualizar
-    
+
     amigos.forEach((amigo, index) => {
         const li = document.createElement("li"); // Crea un nuevo elemento de lista
         li.textContent = amigo;
@@ -38,7 +38,7 @@ function actualizarListaAmigos() {
         btnEliminar.textContent = "❌";
         btnEliminar.classList.add("btn-delete");
         btnEliminar.onclick = () => eliminarAmigo(index);
-        
+
         li.appendChild(btnEliminar);
         lista.appendChild(li); // Agrega el elemento a la lista en la interfaz
     });
@@ -56,18 +56,18 @@ function sortearAmigo() {
         alert("Deben haber al menos 2 participantes para realizar el sorteo.");
         return;
     }
-    
+
     // Se genera una copia de la lista y se desordena aleatoriamente
     let amigosDesordenados = [...amigos].sort(() => Math.random() - 0.5);
     let resultado = [];
-    
+
     // Se asigna a cada persona un amigo secreto de forma cíclica
     for (let i = 0; i < amigos.length; i++) {
         let amigoActual = amigosDesordenados[i];
         let amigoSecreto = amigosDesordenados[(i + 1) % amigos.length]; // Asigna al siguiente en la lista
         resultado.push(`${amigoActual} → ${amigoSecreto}`);
     }
-    
+
     mostrarResultado(resultado); // Muestra los resultados en pantalla
 }
 
@@ -75,7 +75,7 @@ function sortearAmigo() {
 function mostrarResultado(resultado) {
     const listaResultado = document.getElementById("resultado"); // Captura el área de resultados
     listaResultado.innerHTML = ""; // Vacía la lista antes de actualizar
-    
+
     resultado.forEach((pair) => {
         const li = document.createElement("li"); // Crea un nuevo elemento de lista
         li.textContent = pair;
